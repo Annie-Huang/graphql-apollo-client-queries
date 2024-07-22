@@ -7,6 +7,7 @@ https://github.com/Annie-Huang/graphql-apollo-client-queries
 
 PS C:\react\graphql-apollo-client-queries\dogAPI> npm install
 PS C:\react\graphql-apollo-client-queries\dogAPI> npm run start
+http://localhost:4000/
 
 PS C:\react\graphql-apollo-client-queries> npx create-react-app frontend
 PS C:\react\graphql-apollo-client-queries\frontend> npm install
