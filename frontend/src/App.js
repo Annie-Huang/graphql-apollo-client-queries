@@ -11,7 +11,17 @@ const GET_ALL_DOGS = gql`
 `;
 
 function App() {
-  const { loading, error, data } = useQuery(GET_ALL_DOGS);
+  const { loading, error, data } = useQuery(GET_ALL_DOGS, {
+    onCompleted: (queryData) => {
+      console.log(queryData);
+      console.log(queryData.getAllDogs);
+
+      const dogArray = queryData.getAllDogs;
+      dogArray.forEach((dog) => {
+        console.log(dog.name + ' is ' + dog.age + ' years old');
+      });
+    },
+  });
 
   if (loading) return null;
   if (error) return 'Error: ' + error;
