@@ -9,3 +9,5 @@ PS C:\react\graphql-apollo-client-queries\dogAPI> npm install
 PS C:\react\graphql-apollo-client-queries\dogAPI> npm run start
 
 PS C:\react\graphql-apollo-client-queries> npx create-react-app frontend
+PS C:\react\graphql-apollo-client-queries\frontend> npm install
+PS C:\react\graphql-apollo-client-queries\frontend> npm install @apollo/client
