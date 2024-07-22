@@ -1,0 +1,7 @@
+Apollo Client Queries with React and Apollo Server (useQuery, useLazyQuery)
+(https://www.youtube.com/watch?v=V8GVmy_Up0o)
+
+https://github.com/coopercodes/dogAPI
+https://github.com/Annie-Huang/graphql-apollo-client-queries
+------------------------------------------------------------------------------------------
+
