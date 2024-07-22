@@ -12,3 +12,6 @@ http://localhost:4000/
 PS C:\react\graphql-apollo-client-queries> npx create-react-app frontend
 PS C:\react\graphql-apollo-client-queries\frontend> npm install
 PS C:\react\graphql-apollo-client-queries\frontend> npm install @apollo/client
+
+PS C:\react\graphql-apollo-client-queries\frontend> npm run start
+http://localhost:3000/
