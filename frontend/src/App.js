@@ -1,5 +1,6 @@
 import './App.css';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useLazyQuery, useQuery } from '@apollo/client';
+import { useState } from 'react';
 
 const GET_ALL_DOGS = gql`
   query GetAllDogs {
@@ -36,7 +37,7 @@ function App() {
   if (error) return 'Error: ' + error;
   console.log(data);*/
 
-  const { loading, error, data } = useQuery(GET_DOG_BY_NAME, {
+  /*  const { loading, error, data } = useQuery(GET_DOG_BY_NAME, {
     variables: {
       // name: 'Bert',
       name: 'Cooper',
@@ -49,13 +50,46 @@ function App() {
       console.log(errorData);
     },
   });
+  // console.log(error);*/
 
-  console.log(error);
+  const [dogInput, setDogInput] = useState('');
+  /*
+  const [getDogData, { loading, error, data }] = useLazyQuery(GET_DOG_BY_NAME, {
+    variables: {
+      name: dogInput,
+    },
+
+  Note: You cannot do it like above, because it will run whenever the state value changes after the run the query once.
+  * */
+  const [getDogData, { loading, error, data }] = useLazyQuery(GET_DOG_BY_NAME, {
+    onCompleted: (queryData) => {
+      // Only run when you successfully complete a request, you can tried it with `name: 'Cooper'` upstairs.
+      console.log(queryData);
+    },
+    onError: (errorData) => {
+      console.log(errorData);
+    },
+  });
+
+  // console.log(dogInput);
 
   return (
     <div className='App'>
       <header className='App-header'>
         <h1>Dog API query app</h1>
+        <input type='text' onChange={(e) => setDogInput(e.target.value)} />
+        <button
+          type='button'
+          onClick={() =>
+            getDogData({
+              variables: {
+                name: dogInput,
+              },
+            })
+          }
+        >
+          Get Dog Data By Name
+        </button>
       </header>
     </div>
   );
